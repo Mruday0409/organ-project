@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About kidney</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0d0d2b, #1a1a40);
+            color: #ffffffcc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 20px 40px;
+            /* top padding for navbar */
+        }
+
+        /* .navbar {
+            height: 50px;
+            padding-top: 0.3rem;
+            padding-bottom: 0.3rem;
+        }
+
+        .navbar-brand {
+            font-size: 1rem;
+            padding-top: 3rem;
+        }
+
+        .navbar-nav .nav-link {
+            padding-top: 3rem;
+            padding-bottom: 0.2rem;
+            font-size: 0.9rem;
+        } */
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #ff4d6d;
+            text-shadow: 0 0 10px #ff4d6d44;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #aaa;
+            text-align: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            width: 100%;
+            margin-bottom: 50px;
+        }
+
+        .image-box img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 0 30px #ff4d6d33;
+        }
+
+        .content-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .content-box h2 {
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .content-box p {
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: rgba(229, 4, 4, 0.05);
+            border: 1px solid #ff4d6d55;
+            padding: 20px;
+            border-radius: 15px;
+            transition: 0.3s ease;
+            box-shadow: 0 5px 15px #00000050;
+        }
+
+        .card:hover {
+            background: #ff4d6d22;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px #ff4d6d44;
+        }
+
+        .cards h3 {
+            color: rgb(135, 241, 235);
+        }
+
+        .cards p {
+            color: rgb(240, 129, 129);
+        }
+
+        footer {
+            color: #666;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 
+        @media (min-width: 768px) {
+
+
+            .navbar {
+                height: 60px;
+                padding-top: 0.3rem;
+                padding-bottom: 0.3rem;
+            }
+
+            .navbar-brand {
+                font-size: 1rem;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+
+
+        } */
+
+        .image-box img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 0 30px #ff4d6d33;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .image-box img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 50px #21d2a988;
+        }
+
+        /* Reverse layout for second container */
+        .container.reverse {
+            direction: rtl;
+        }
+
+        .container.reverse .content-box,
+        .container.reverse .image-box {
+            direction: ltr;
+        }
+
+        /* New animation for second image */
+        .image-box img.second-img {
+            animation: slideScale 0.8s ease-in-out;
+        }
+
+        @keyframes slideScale {
+            0% {
+                opacity: 0;
+                transform: translateX(60px) scale(0.95);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Organ Project</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Organs
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="heart.html">Heart</a></li>
+                            <li><a class="dropdown-item" href="lungs.html">Lungs</a></li>
+                            <li><a class="dropdown-item" href="brain.html">Brain</a></li>
+                            <li><a class="dropdown-item" href="liver.html">Liver</a></li>
+                            <li><a class="dropdown-item" href="kidney.html">Kidney</a></li>
+                            <li><a class="dropdown-item" href="urinary_bladder.html">Urinary Bladder</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Heading -->
+    <h1>About Kidney</h1>
+    <div class="subtitle">Vital Organ Responsible for Blood Circulation</div>
+
+    <!-- Main Content -->
+    <div class="container" data-aos="fade-up">
+        <div class="image-box" data-aos="fade-right">
+            <img src="images/4aa73815-d8e6-4634-9863-d5c5d1043a22.jpeg" alt="Heart Image">
+        </div>
+        <div class="content-box" data-aos="fade-left">
+            <h2>Kidney - Anatomy and Function </h2>
+            <h4>General Overview:</h4>
+            <p>Kidneys are a pair of bean-shaped organs located on either side of the vertebral column in the
+                posterior abdominal cavity.
+            </p>
+            <h4>Function:</h4>
+            <ul>
+                <li>Filter blood</li>
+                <li> Form urine</li>
+                <li> Maintain fluid and electrolyte balance</li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="container reverse" data-aos="fade-up">
+        <div class="image-box" data-aos="fade-left">
+            <img src="images/kidney location.jpeg" class="second-img" alt="Kidney Location Image">
+        </div>
+        <div class="content-box" data-aos="fade-right">
+            <h2>Kidney - Anatomy and Function </h2>
+            <h4>General Overview:</h4>
+            <p>Kidneys are a pair of bean-shaped organs located on either side of the vertebral column in the
+                posterior abdominal cavity.
+            </p>
+            <h4>Function:</h4>
+            <ul>
+                <li>Filter blood</li>
+                <li> Form urine</li>
+                <li> Maintain fluid and electrolyte balance</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container" data-aos="fade-up">
+        <div class="image-box" data-aos="fade-right">
+            <img src="images/10528968.jpg" alt="Heart Image">
+        </div>
+        <div class="content-box" data-aos="fade-left">
+            <h2>External Features of the Kidney: </h2>
+            <ul>
+                <p>1.Shape: Bean-shaped<br>
+
+                    2.Size: ~10–12 cm long, 5–6 cm wide, 3 cm thick<br>
+
+                    3.Weight: 120–170 grams each<br>
+
+                    4.Surfaces:
+                    <li>Anterior surface</li>
+
+                    <li>Posterior surface</li>
+                    5.Borders:
+                    <li>Lateral border – convex</li>
+
+                    <li>Medial border – concave (contains the hilum)</li>
+                    6.Poles:
+                    <li>LSuperior pole (near adrenal gland)</li>
+
+                    <li>Inferior pole</li>
+                </p>
+                <li>Positioned between T12 – L3 vertebrae</li>
+                <li>Right kidney is slightly lower than the left due to the liver.</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <!-- Info Cards -->
+    <div class="cards">
+        <div class="card">
+            <h3>Blood Supply:</h3>
+            <p>Renal Artery (from abdominal aorta) → Branches into:<br>
+                1.Segmental arteries<br>
+                2.Interlobar arteries<br>
+                3.Arcuate arteries<br>
+                4.Interlobular arteries
+                5.Renal Vein drains into the inferior vena cav</p>
+
+        </div>
+        <div class="card">
+            <h3>Internal
+                Structure:</h3>
+            <p>1.Renal Capsule: Outer fibrous covering<br>
+                2.Cortex: Outer region containing glomeruli and convoluted tubules<br>
+                3.Minor Calyces: Collect urine from renal papillae<br>Major Calyces: Formed by joining minor calyces</p>
+        </div>
+        <div class="card">
+            <h3>Nerve Supply:</h3>
+            <p>1.From renal plexus<br>2.Sympathetic innervation helps regulate blood flow</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Designed by Uday Kiran. All rights reserved.
+    </footer>
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
