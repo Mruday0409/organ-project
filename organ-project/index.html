@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #098ea5, #000014);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+        .nav-button {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 192, 203, 0.2);
+            border: 2px solid rgba(255, 192, 203, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 0 15px rgba(255, 192, 203, 0.3);
+        }
+
+        .nav-button:hover {
+            background: rgba(255, 192, 203, 0.4);
+            box-shadow: 
+                0 0 20px rgba(255, 192, 203, 0.5),
+                0 0 40px rgba(255, 192, 203, 0.3);
+        }
+
+        .nav-button.prev { left: 30px; }
+        .nav-button.next { right: 30px; }
+
+        .nav-button::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-top: 3px solid white;
+            border-right: 3px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button.prev::before { transform: rotate(-135deg); margin-left: 5px; }
+        .nav-button.next::before { transform: rotate(45deg); margin-right: 5px; }
+
+        .spotlight {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            transform: translateX(-50%);
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 2;
+            animation: spotlightPulse 4s infinite;
+        }
+
+        @keyframes spotlightPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 1.5s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .gallery-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 2000px;
+        }
+
+        .gallery {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease-out;
+        }
+
+        .card {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 192, 203, 0.3);
+            transition: all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+            cursor: pointer;
+            overflow: hidden;
+            transform-origin: center center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
+        .number {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-light"></div>
+    <div class="spotlight"></div>
+    <div class="stars"></div>
+    <button class="nav-button prev" aria-label="Previous"></button>
+    <button class="nav-button next" aria-label="Next"></button>
+    <div class="gallery-container">
+        <div class="gallery"></div>
+    </div>
+
+    <script>
+        function createStars() {
+            const starsContainer = document.querySelector('.stars');
+            for (let i = 0; i < 200; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = Math.random() * 3 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        function createGallery() {
+            const gallery = document.querySelector('.gallery');
+            const radius = window.innerWidth < 768 ? 400 : 600;
+            let currentAngle = 0;
+
+            const organData = [
+                { name: "Heart", img: "images/heartcover.webp", link: "heart.html" },
+                { name: "Lungs", img: "images/lungscover.jpg", link: "lungs.html" },
+                { name: "Brain", img: "images/braincover.jpg", link: "brain.html" },
+                { name: "Liver", img: "images/livercover.avif", link: "liver.html" },
+                { name: "Kidney", img: "images/kidneycover.jpg", link: "kidney.html" },
+                { name: "urinary bladder", img: "images/urinary bladder cover.jpg", link: "stomach.html" }
+            ];
+
+            organData.forEach((data, i) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <a href="${data.link}" style="display: block; width: 100%; height: 100%;">
+                        <img src="${data.img}" alt="${data.name}" />
+                    </a>
+                    <div class="number">${data.name}</div>
+                `;
+                gallery.appendChild(card);
+            });
+
+            function updateCards() {
+                const cards = document.querySelectorAll('.card');
+                cards.forEach((card, index) => {
+                    const angle = (currentAngle + index * (360 / organData.length)) * (Math.PI / 180);
+                    const x = Math.sin(angle) * radius;
+                    const z = Math.cos(angle) * radius;
+                    const rotateY = angle * (180 / Math.PI);
+                    card.style.transform = `translate3d(${x}px, 0, ${z}px) rotateY(${rotateY}deg)`;
+                });
+            }
+
+            document.querySelector('.nav-button.prev').addEventListener('click', () => {
+                currentAngle += 60;
+                updateCards();
+            });
+
+            document.querySelector('.nav-button.next').addEventListener('click', () => {
+                currentAngle -= 60;
+                updateCards();
+            });
+
+            updateCards();
+        }
+
+        createStars();
+        createGallery();
+    </script>
+</body>
+</html>

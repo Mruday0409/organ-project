@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Heart - Organ Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Organ Project</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Organs</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="heart.html">Heart</a></li>
+                            <li><a class="dropdown-item" href="lungs.html">Lungs</a></li>
+                            <li><a class="dropdown-item" href="brain.html">Brain</a></li>
+                            <li><a class="dropdown-item" href="liver.html">Liver</a></li>
+                            <li><a class="dropdown-item" href="kidney.html">Kidney</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Image Carousel -->
+    <div id="heartCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" style="margin-top: 5px;">
+            <div class="carousel-item active">
+                <img src="images/47317.jpg" class="d-block w-100" alt="Heart Slide 1">
+            </div>
+            <div class="carousel-item">
+                <img src="images/19598033.jpg" class="d-block w-100" alt="Heart Slide 2">
+            </div>
+            <div class="carousel-item">
+                <img src="images/anatomy-drawing-vintage-style.jpg" class="d-block w-100" alt="Heart Slide 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heartCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heartCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <!-- Organ Content Section -->
+    <section class="container py-5">
+        <div class="row align-items-center mb-5">
+            <div class="col-md-6">
+                <img src="images/4aa73815-d8e6-4634-9863-d5c5d1043a22.jpeg" class="img-fluid rounded shadow"
+                    alt="Heart Detail Image 1">
+            </div>
+            <div class="col-md-6">
+                <h3>Kidney - Anatomy and Function </h3>
+                <h5>General Overview:</h5>
+                <p>Kidneys are a pair of bean-shaped organs located on either side of the vertebral column in the
+                    posterior abdominal cavity.</p>
+                <h4>Function:</h4>
+                <ul>
+                    <li>Filter blood</li>
+                    <li> Form urine</li>
+                    <li> Maintain fluid and electrolyte balance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row align-items-center flex-md-row-reverse">
+            <div class="col-md-6">
+                <img src="images/kidney location.jpeg" class="img-fluid rounded shadow" alt="Heart Detail Image 2">
+            </div>
+            <div class="col-md-6">
+                <h3>Kidney Location:</h3>
+                <ul>
+                    <li>Retroperitoneal (behind the peritoneum)</li>
+                    <li>Positioned between T12 – L3 vertebrae</li>
+                    <li>Right kidney is slightly lower than the left due to the liver.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row align-items-center mb-5">
+            <div class="col-md-6">
+                <img src="images/10528968.jpg" class="img-fluid rounded shadow" alt="Heart Detail Image 1">
+            </div>
+            <div class="col-md-6">
+                <h3>External Features of the Kidney:</h3>
+                <ul>
+                    <p>1.Shape: Bean-shaped<br>
+
+                        2.Size: ~10–12 cm long, 5–6 cm wide, 3 cm thick<br>
+
+                        3.Weight: 120–170 grams each<br>
+
+                        4.Surfaces:
+                        <li>Anterior surface</li>
+
+                        <li>Posterior surface</li>
+                        5.Borders:
+                        <li>Lateral border – convex</li>
+
+                        <li>Medial border – concave (contains the hilum)</li>
+                        6.Poles:
+                        <li>LSuperior pole (near adrenal gland)</li>
+
+                        <li>Inferior pole</li>
+                    </p>
+                    <li>Positioned between T12 – L3 vertebrae</li>
+                    <li>Right kidney is slightly lower than the left due to the liver.</li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Card Deck Section -->
+    <div class="card-deck-section">
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+
+                <div class="flip-card-front ">Internal
+                    Structure:
+
+                </div>
+                <div class="flip-card-back">1.Renal Capsule: Outer fibrous covering<br>
+                    2.Cortex: Outer region containing glomeruli and convoluted tubules<br>
+                    3.Minor Calyces: Collect urine from renal papillae<br>Major Calyces: Formed by joining minor calyces
+                </div>
+            </div>
+        </div>
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">Blood Supply:</div>
+                <div class="flip-card-back">Renal Artery (from abdominal aorta) → Branches into:<br>
+                    1.Segmental arteries<br>
+                    2.Interlobar arteries<br>
+                    3.Arcuate arteries<br>
+                    4.Interlobular arteries
+                    5.Renal Vein drains into the inferior vena cava
+                </div>
+            </div>
+        </div>
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">Nerve Supply:</div>
+                <div class="flip-card-back">1.From renal plexus<br>2.Sympathetic innervation helps regulate blood flow
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-3">
+        <p>&copy; 2025 Organ Project. By Lavanya E.</p>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<script>
+    document.querySelectorAll('.flip-card').forEach(card => {
+        card.addEventListener('click', () => {
+            card.classList.toggle('flipped');
+        });
+    });
+</script>
+
+</html>
